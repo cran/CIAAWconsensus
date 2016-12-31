@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("stats", "runif", "sd", "quantile", "cov")
+importFrom("utils", "head")
+importFrom("mvtnorm","rmvnorm")

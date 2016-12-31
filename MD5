@@ -1,0 +1,13 @@
+ecbb5d55bb54bdb33407893f3e8b58c4 *DESCRIPTION
+0b74ddfafffb891c37f15ca343a99088 *NAMESPACE
+d55407f68be5efb271e582d098e1e4e1 *R/ciaaw.R
+fbbee88d4e9e51cde5dfce83c1bfd3fe *data/ciaaw.mass.rda
+ab292f780d5447df42358c52f88a4109 *data/iridium.data.rda
+7f375464987df784a911b1756621cbd2 *data/platinum.data.rda
+8f1f8c6305fa30a895893719fd1d1329 *man/abundances2ratios.Rd
+2b6339fb9a6f9fd72ad9bc947bdd0c2f *man/at.weight.Rd
+0d956376d84cdf92ec0b0552fa8cb2bf *man/ciaaw.mass.Rd
+81f0f7f9daa45eec0f9ee8ca7921521a *man/iridium.data.Rd
+792c65d83edf51a34a9b134c627558e3 *man/mmm.Rd
+33179694311b2898fe4869e9ea52c59b *man/normalize.ratios.Rd
+5b08688cf72d099896f8ee073a47002a *man/platinum.data.Rd
