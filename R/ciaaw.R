@@ -3,7 +3,7 @@
 ## ciaaw.R
 ##
 ## AUTHOR:            Juris Meija & Antonio Possolo
-## MODIFICATION DATE: 2016 Dec 27
+## MODIFICATION DATE: 2017 Aug 18
 
 ######################################################################
 
@@ -24,7 +24,7 @@ at.weight = function (ratio, ratio.cov, element, ref.isotope)
     max.iter = 1e6
     mass.sequence = c(ref, seq(from = 1, to = (1 + p))[-ref])
     ratios.B = abs(cbind(1, rmvnorm(max.iter, mean=ratio, sigma=ratio.cov, method = "svd")))
-    mass.B = rmvnorm(max.iter, mean=mass.x, sigma=diag(mass.u), method="svd")[,mass.sequence]
+    mass.B = rmvnorm(max.iter, mean=mass.x, sigma=diag(mass.u^2), method="svd")[,mass.sequence]
     atomicWeight = rowSums(ratios.B * mass.B)/rowSums(ratios.B)
     abundances = ratios.B/rowSums(ratios.B)
     colnames(abundances) = mass.x[mass.sequence]

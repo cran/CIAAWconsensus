@@ -30,7 +30,7 @@ This missing information can be reconstructed by mapping all possible correlatio
 \references{
 J. Meija and Z. Mester (2008) \href{http://dx.doi.org/10.1088/0026-1394/45/4/012}{Atomic weight uncertainty calculation from isotopic composition of the elements}. \emph{Metrologia}, 45, 459
 
-J. Meija, A. Possolo (2017) Data reduction framework for standard atomic weights and isotopic compositions of the elements. \emph{Metrologia}, submitted
+J. Meija and A. Possolo (2017) \href{https://doi.org/10.1088/1681-7575/aa634d}{Data reduction framework for standard atomic weights and isotopic compositions of the elements}. \emph{Metrologia}, 54, 229-238
 
 JCGM 101:2008 Evaluation of measurement data - Supplement 1 to the "Guide to the expression of uncertainty in measurement" - Propagation of distributions using a Monte Carlo method
 }

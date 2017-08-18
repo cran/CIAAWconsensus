@@ -1,0 +1,6 @@
+CIAAWconsensus v1.2 (Release date: 2017-08-18)
+==============
+
+Changes:
+
+* The function at.weight() was corrected (the uncertainty contribution from nuclide masses).

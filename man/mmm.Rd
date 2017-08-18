@@ -36,7 +36,7 @@ The marginal method of moments delivers the inference for correlated effect size
 \references{
 Y. Chen, Y. Cai, C. Hong, and D. Jackson (2016) \href{http://dx.doi.org/10.1002/sim.6789}{Inference for correlated effect sizes using multiple univariate meta-analyses}. \emph{Statistics in Medicine}, 35, 1405-1422
 
-J. Meija, A. Possolo (2017) Data reduction framework for standard atomic weights and isotopic compositions of the elements. \emph{Metrologia}, submitted
+J. Meija and A. Possolo (2017) \href{https://doi.org/10.1088/1681-7575/aa634d}{Data reduction framework for standard atomic weights and isotopic compositions of the elements}. \emph{Metrologia}, 54, 229-238
 }
 \author{Juris Meija <juris.meija@nrc-cnrc.gc.ca> and Antonio Possolo}
 
