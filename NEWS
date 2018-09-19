@@ -1,6 +1,7 @@
-CIAAWconsensus v1.2 (Release date: 2017-08-18)
+CIAAWconsensus v1.3 (Release date: 2018-09-09)
 ==============
 
 Changes:
 
-* The function at.weight() was corrected (the uncertainty contribution from nuclide masses).
+* The function at.weight() was modified to allow custom datasets.
+* Additional datasets were added: ciaaw.mass.2003, ciaaw.mass.2012, and ciaaw.mass.2016

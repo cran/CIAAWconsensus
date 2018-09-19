@@ -6,7 +6,7 @@ This function calculates the isotopic abundances and the atomic weight of a chem
 The uncertainty evaluation is done using the Monte Carlo method and the relevant masses of the isotopes are extracted from the www.ciaaw.org.
 }
 \usage{
-at.weight(ratio, ratio.cov, element, ref.isotope)
+at.weight(ratio, ratio.cov, element, ref.isotope, data=NULL)
 }
 
 \arguments{
@@ -14,6 +14,7 @@ at.weight(ratio, ratio.cov, element, ref.isotope)
   \item{ratio.cov}{A covariance matrix of \code{ratio}}
   \item{element}{A string consisting of the lowercase English name of the element. For example, "zinc"}
   \item{ref.isotope}{A string which specifies the reference isotope. For example, "64Zn"}
+  \item{data}{Nuclide mass dataframe. Default dataframe is ciaaw.mass.2016}
 }
 \details{
 The isotopic composition of an element with \code{N} isotopes is characterized using a set of \code{N-1} nontrivial isotope amount ratios.

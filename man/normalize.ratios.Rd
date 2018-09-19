@@ -26,7 +26,8 @@ The format of \code{dat} data frame for a simple dataset is as follows:
     1 \tab 1954 \tab Howard  \tab 191Ir/193Ir \tab 0.5949  \tab 0.0025  \tab 9 \cr
     2 \tab 1991 \tab Creaser \tab 191Ir/193Ir \tab 0.5948  \tab 0.0001  \tab 9 \cr
     3 \tab 1992 \tab Chang   \tab 191Ir/193Ir \tab 0.59399 \tab 0.00103 \tab 6 \cr
-	4 \tab 1993 \tab Walczyk \tab 191Ir/193Ir \tab 0.59418 \tab 0.00037 \tab 9
+	4 \tab 1993 \tab Walczyk \tab 191Ir/193Ir \tab 0.59418 \tab 0.00037 \tab 9 \cr
+	5 \tab 2017 \tab Zhu \tab 191Ir/193Ir \tab 0.59290 \tab 0.00021 \tab 6 \cr
   }
 }
 \value{

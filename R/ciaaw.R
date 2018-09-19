@@ -3,17 +3,20 @@
 ## ciaaw.R
 ##
 ## AUTHOR:            Juris Meija & Antonio Possolo
-## MODIFICATION DATE: 2017 Aug 18
+## MODIFICATION DATE: 2018 Sep 8
 
 ######################################################################
 
-at.weight = function (ratio, ratio.cov, element, ref.isotope) 
+at.weight = function (ratio, ratio.cov, element, ref.isotope, data=NULL)
 {
-  e <- new.env(parent = emptyenv())
-  data(list='ciaaw.mass', envir = e)
-  data <- e$ciaaw.mass
-    
     ratio.cov <- as.matrix(ratio.cov)
+    
+    if(is.null(data)){
+      e <- new.env(parent = emptyenv())
+      data(list='ciaaw.mass.2016', envir = e)
+      data <- e$ciaaw.mass.2016
+    }
+
     mass.raw = data[which(data$element==element),]
     isotope.list = as.vector(mass.raw$isotope)
     mass.x = as.numeric(mass.raw$mass)
@@ -23,8 +26,8 @@ at.weight = function (ratio, ratio.cov, element, ref.isotope)
     p = length(isotope.list) - 1
     max.iter = 1e6
     mass.sequence = c(ref, seq(from = 1, to = (1 + p))[-ref])
-    ratios.B = abs(cbind(1, rmvnorm(max.iter, mean=ratio, sigma=ratio.cov, method = "svd")))
-    mass.B = rmvnorm(max.iter, mean=mass.x, sigma=diag(mass.u^2), method="svd")[,mass.sequence]
+    ratios.B = abs(cbind(1, mvtnorm::rmvnorm(max.iter, mean=ratio, sigma=ratio.cov, method = "svd")))
+    mass.B = mvtnorm::rmvnorm(max.iter, mean=mass.x, sigma=diag(mass.u^2), method="svd")[,mass.sequence]
     atomicWeight = rowSums(ratios.B * mass.B)/rowSums(ratios.B)
     abundances = ratios.B/rowSums(ratios.B)
     colnames(abundances) = mass.x[mass.sequence]
@@ -52,20 +55,20 @@ at.weight = function (ratio, ratio.cov, element, ref.isotope)
 
 ## Atomic weight and isotopic abundances of iridium which correspond
 ## to the isotope ratio 191Ir/193Ir = 0.59471(13)
-## at.weight(0.59471, 0.00013^2, "iridium", "193Ir")
+# at.weight(0.59471, 0.00013^2, "iridium", "193Ir")
 
 ## Atomic weight and isotopic abundances of silicon which correspond
 ## to isotope ratios 28Si/29Si = 1.074(69) and 30Si/29Si = 260(11)
 ## with a correlation of 0.80 between the two isotope ratios
-## ratios = c(1.074,260)
-## sigma = matrix(c(0.069^2,0.80*0.069*11,0.80*0.069*11,11^2),ncol=2,byrow=TRUE)
-## at.weight(ratios, sigma, "silicon", "29Si")
+# ratios = c(1.074,260)
+# sigma = matrix(c(0.069^2,0.80*0.069*11,0.80*0.069*11,11^2),ncol=2,byrow=TRUE)
+# at.weight(ratios, sigma, "silicon", "29Si")
 
 normalize.ratios = function (dat, element, ref.isotope, expand = FALSE) 
 {
   e <- new.env(parent = emptyenv())
-  data(list='ciaaw.mass', envir = e)
-  data <- e$ciaaw.mass
+  data(list='ciaaw.mass.2016', envir = e)
+  data <- e$ciaaw.mass.2016
   
   mass.raw = data[which(data$element==element),]
   isotope.list = as.vector(mass.raw$isotope)
@@ -152,7 +155,7 @@ normalize.ratios = function (dat, element, ref.isotope, expand = FALSE)
 }
 
 ## Normalize all iridium isotope data to iridium-193
-## normalize.ratios(iridium.data, "iridium", "193Ir")
+# normalize.ratios(iridium.data, "iridium", "193Ir")
 
 mmm <- function(y, uy, knha=TRUE, verbose=TRUE) {
   
@@ -245,8 +248,8 @@ mmm <- function(y, uy, knha=TRUE, verbose=TRUE) {
 }
 
 ## Consensus isotope amount ratios for platinum
-## df = normalize.ratios(platinum.data, "platinum", "195Pt")
-## mmm(df$R, df$u.R)
+# df = normalize.ratios(platinum.data, "platinum", "195Pt")
+# mmm(df$R, df$u.R)
 
 ## A function to convert a given set of isotopic abundances and their uncertainties to the corresponding isotope ratios
 abundances2ratios <- function(x,ux,ref=1,iterations=1e4){
@@ -333,7 +336,7 @@ abundances2ratios <- function(x,ux,ref=1,iterations=1e4){
   list(R=R, R.u=uR, R.cov = cov.R.result[-ref,-ref], N=it.n)
 }
 ## Example: Convert the isotopic abundances of zinc to the corresponding isotope ratios
-##  x = c(0.48630, 0.27900, 0.04100, 0.18750, 0.00620)
-## ux = c(0.00091, 0.00076, 0.00031, 0.00135, 0.00010)
-## z=abundances2ratios(x, ux, ref=2)
-## at.weight(z$R, z$R.cov, "zinc", "66Zn")
+#  x = c(0.48630, 0.27900, 0.04100, 0.18750, 0.00620)
+# ux = c(0.00091, 0.00076, 0.00031, 0.00135, 0.00010)
+# z=abundances2ratios(x, ux, ref=2)
+# at.weight(z$R, z$R.cov, "zinc", "66Zn")

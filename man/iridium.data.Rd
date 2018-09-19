@@ -7,5 +7,5 @@
 }
 \usage{iridium.data}
 \format{A data frame.}
-\source{IUPAC/CIAAW 2016}
+\source{IUPAC/CIAAW 2018}
 \keyword{datasets}

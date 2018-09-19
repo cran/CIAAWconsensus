@@ -1,11 +1,11 @@
-\name{ciaaw.mass}
+\name{ciaaw.mass.2003}
 \docType{data}
-\alias{ciaaw.mass}
-\title{Atomic masses of isotopes (IUPAC/CIAAW 2012)}
+\alias{ciaaw.mass.2003}
+\title{Atomic masses of isotopes (IUPAC/CIAAW 2003)}
 \description{
   This data set gives the atomic masses and uncertainties of all polyisotopic nuclides as they are used by the IUPAC/CIAAW.
 }
-\usage{ciaaw.mass}
+\usage{ciaaw.mass.2003}
 \format{A data frame with 268 rows and 4 variables:
 	\itemize{
 	\item {isotope: Symbol of the isotope}
@@ -13,5 +13,5 @@
 	\item {mass: Atomic mass of the isotope in daltons}
 	\item {uncertainty: Uncertainty of the atomic mass of the isotope as used by the IUPAC-CIAAW}
 }}
-\source{\url{http://www.ciaaw.org/}}
+\source{AME2003, \url{http://www.ciaaw.org/}}
 \keyword{datasets}
